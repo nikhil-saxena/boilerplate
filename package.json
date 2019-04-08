@@ -14,5 +14,10 @@
     "node"
   ],
   "author": "Nikhil Saxenq",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@commitlint/cli": "^7.5.2",
+    "@commitlint/config-conventional": "^7.5.0",
+    "husky": "^1.3.1"
+  }
 }

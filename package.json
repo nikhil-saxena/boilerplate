@@ -1,0 +1,18 @@
+{
+  "name": "boilerplate",
+  "version": "1.0.0",
+  "description": "A small boilerplate with authentication via passport modules.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "boilerplate",
+    "passport",
+    "authentication",
+    "react",
+    "node"
+  ],
+  "author": "Nikhil Saxenq",
+  "license": "ISC"
+}

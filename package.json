@@ -13,7 +13,7 @@
     "react",
     "node"
   ],
-  "author": "Nikhil Saxenq",
+  "author": "Nikhil Saxena",
   "license": "ISC",
   "devDependencies": {
     "@commitlint/cli": "^7.5.2",

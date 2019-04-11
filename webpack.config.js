@@ -1,8 +1,11 @@
 const path = require("path");
 
-const DEV = process.env.NODE_ENV !== "production";
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
-console.info(`-----Bundling in ${DEV ? "development" : "production"} mode-----`);
+const DEV = process.env.NODE_ENV !== "production";
+console.info(
+  `-----Bundling in ${DEV ? "development" : "production"} mode-----`
+);
 
 module.exports = {
   mode: DEV ? "development" : "production",
@@ -35,5 +38,11 @@ module.exports = {
         use: ["style-loader", "css-loader", "sass-loader"]
       }
     ]
-  }
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: "BoilerPlate",
+      filename: "dist/index.html"
+    })
+  ]
 };

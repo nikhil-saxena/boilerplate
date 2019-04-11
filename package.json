@@ -4,7 +4,8 @@
   "description": "A small boilerplate with authentication via passport modules.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "NODE_ENV=production && webpack"
+    "build": "NODE_ENV=production && webpack",
+    "dev": "NODE_ENV=development && webpack"
   },
   "keywords": [
     "boilerplate",
@@ -31,6 +32,7 @@
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-react": "^7.12.4",
+    "html-webpack-plugin": "^3.2.0",
     "husky": "^1.3.1",
     "lint-staged": "^8.1.5",
     "node-sass": "^4.11.0",

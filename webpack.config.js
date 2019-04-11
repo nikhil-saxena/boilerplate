@@ -1,10 +1,12 @@
-import * as path from "path";
+const path = require("path");
 
 const DEV = process.env.NODE_ENV !== "production";
 
+console.info(`-----Bundling in ${DEV ? "development" : "production"} mode-----`);
+
 module.exports = {
   mode: DEV ? "development" : "production",
-  entry: "src/index.js",
+  entry: path.join(__dirname, "src", "index.js"),
   output: {
     path: path.join(__dirname, "dist"),
     filename: "[name].[chunkhash:8].js"
@@ -24,7 +26,7 @@ module.exports = {
         use: {
           loader: "babel-loader",
           options: {
-            presets: ["env", "react"]
+            presets: ["@babel/preset-env", "@babel/preset-react"]
           }
         }
       },

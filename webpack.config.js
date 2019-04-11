@@ -42,7 +42,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       title: "BoilerPlate",
-      filename: "dist/index.html"
+      filename: "index.html"
     })
   ]
 };

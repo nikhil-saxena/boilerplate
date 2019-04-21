@@ -1,0 +1,40 @@
+const express = require("express");
+const path = require("path");
+
+const app = express();
+// const webpackDevMiddleware = require('webpack-dev-middleware');
+// const webpackHotMiddleware = require('webpack-hot-middleware');
+// const webpackConfig = require('./webpack.config.js');
+// const webpack = require('webpack');
+const port = process.env.PORT || 3031;
+// const compiler = webpack(webpackConfig);
+
+// app.use(
+//   webpackDevMiddleware(compiler, {
+//     hot: true,
+//     filename: 'bundle.js',
+//     contentBase: './dist',
+//     host: 'localhost'
+//   })
+// );
+
+// app.use(
+//   webpackHotMiddleware(compiler, {
+//     log: console.log,
+//     reload: true,
+//     path: '/__webpack_hmr',
+//     heartbeat: 10 * 1000
+//   })
+// );
+
+app.use("/dist", express.static(path.join(__dirname, "dist")));
+// app.use('/public', express.static(__dirname + '/public'));
+
+// viewed at http://localhost:3031
+app.get("/*", function(req, res) {
+  res.sendFile(path.join(__dirname, "dist", "index.html"));
+});
+
+app.listen(port, function() {
+  console.log("server running at ", port);
+});

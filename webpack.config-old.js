@@ -9,15 +9,12 @@ console.info(
 
 module.exports = {
   mode: DEV ? "development" : "production",
-  entry: {
-    main: path.join(__dirname, "src", "index.jsx")
-  },
+  entry: path.join(__dirname, "src", "index.jsx"),
   output: {
     path: path.join(__dirname, "dist"),
     filename: "[name].[hash:8].js",
     publicPath: "/dist"
   },
-  target: "web",
   devtool: DEV ? "cheap-module-source-map" : "none",
   module: {
     rules: [
@@ -38,34 +35,15 @@ module.exports = {
         }
       },
       {
-        // Loads the javacript into html template provided.
-        // Entry point is set below in HtmlWebPackPlugin in Plugins
-        test: /\.html$/,
-        use: [
-          {
-            loader: "html-loader"
-          }
-        ]
-      },
-      {
-        test: /\.css$/,
-        use: ["style-loader", "css-loader"]
-      },
-      {
         test: /\.scss$/,
         use: ["style-loader", "css-loader", "sass-loader"]
-      },
-      {
-        test: /\.(png|svg|jpg|gif)$/,
-        use: ["file-loader"]
       }
     ]
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: path.join(__dirname, "src", "index.html"),
-      filename: "index.html",
-      excludeChunks: ["server"]
+      filename: "index.html"
     })
   ]
 };

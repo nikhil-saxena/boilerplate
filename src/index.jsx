@@ -1,6 +1,7 @@
 import _ from "lodash";
 import * as ReactDOM from "react-dom";
 import * as React from "react";
+import * as style from "./style.css"; // eslint-disable-line no-unused-vars
 
 function component() {
   const element = document.createElement("div");

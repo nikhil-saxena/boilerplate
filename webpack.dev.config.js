@@ -1,14 +1,12 @@
 const path = require("path");
-
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
-const DEV = process.env.NODE_ENV !== "production";
 console.info(
-  `-----Bundling in ${DEV ? "development" : "production"} mode-----`
+  `-----Bundling in ${process.env.NODE_ENV} mode-----`
 );
 
 module.exports = {
-  mode: DEV ? "development" : "production",
+  mode: "development",
   entry: {
     main: path.join(__dirname, "src", "index.jsx")
   },
@@ -18,7 +16,7 @@ module.exports = {
     publicPath: "/dist"
   },
   target: "web",
-  devtool: DEV ? "cheap-module-source-map" : "none",
+  devtool: "cheap-module-source-map",
   module: {
     rules: [
       {

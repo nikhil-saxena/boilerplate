@@ -2,9 +2,12 @@ const path = require("path");
 const nodeExternals = require("webpack-node-externals");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 
+const DEV = process.env.NODE_ENV !== "production";
+
 module.exports = {
+  mode: DEV ? "development" : "production",
   entry: {
-    server: path.join(__dirname, "src", "server", "server.js")
+    server: path.join(__dirname, "src", "server", `server-${ DEV ? "dev" : "prod" }.js`)
   },
   output: {
     path: path.join(__dirname, "dist"),

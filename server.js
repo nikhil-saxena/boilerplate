@@ -2,6 +2,8 @@ const express = require("express");
 const path = require("path");
 
 const app = express();
+const DIST_DIR = path.join(__dirname, "dist");
+const HTML_FILE = path.join(DIST_DIR, "index.html");
 // const webpackDevMiddleware = require('webpack-dev-middleware');
 // const webpackHotMiddleware = require('webpack-hot-middleware');
 // const webpackConfig = require('./webpack.config.js');
@@ -27,14 +29,14 @@ const port = process.env.PORT || 3031;
 //   })
 // );
 
-app.use("/dist", express.static(path.join(__dirname, "dist")));
+app.use("/dist", express.static(DIST_DIR));
 // app.use('/public', express.static(__dirname + '/public'));
 
 // viewed at http://localhost:3031
-app.get("/*", function(req, res) {
-  res.sendFile(path.join(__dirname, "dist", "index.html"));
+app.get("*", (req, res) => {
+  res.sendFile(HTML_FILE);
 });
 
-app.listen(port, function() {
+app.listen(port, () => {
   console.log("server running at ", port);
 });

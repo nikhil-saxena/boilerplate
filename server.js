@@ -1,8 +1,8 @@
-const express = require("express");
-const path = require("path");
+import path from "path";
+import express from "express";
 
 const app = express();
-const DIST_DIR = path.join(__dirname, "dist");
+const DIST_DIR = __dirname; // Server run from within /dist folder thus using __dirname
 const HTML_FILE = path.join(DIST_DIR, "index.html");
 // const webpackDevMiddleware = require('webpack-dev-middleware');
 // const webpackHotMiddleware = require('webpack-hot-middleware');

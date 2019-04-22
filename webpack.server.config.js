@@ -30,20 +30,7 @@ module.exports = {
             presets: ["@babel/preset-env"]
           }
         }
-      },
-      {
-        // Loads the javacript into html template provided.
-        // Entry point is set below in HtmlWebPackPlugin in Plugins
-        test: /\.html$/,
-        use: [{ loader: "html-loader" }]
       }
     ]
-  },
-  plugins: [
-    new HtmlWebPackPlugin({
-      template: path.join(__dirname, "src", "index.html"),
-      filename: "index.html",
-      excludeChunks: ["server"]
-    })
-  ]
+  }
 };

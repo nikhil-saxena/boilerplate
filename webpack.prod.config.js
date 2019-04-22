@@ -11,7 +11,7 @@ console.info(
 module.exports = {
   mode: "production",
   entry: {
-    main: path.join(__dirname, "src", "index.jsx")
+    main: './src/index.jsx'
   },
   output: {
     path: path.join(__dirname, "dist"),
@@ -77,7 +77,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.join(__dirname, "src", "index.html"),
+      template: "./src/index.html",
       filename: "index.html",
       excludeChunks: ["server"]
     }),

@@ -30,18 +30,7 @@ const port = process.env.PORT || 3031;
 //     heartbeat: 10 * 1000
 //   })
 // );
-console.log(DIST_DIR, HTML_FILE);
-fs.readdir(DIST_DIR, function (err, files) {
-  //handling error
-  if (err) {
-      return console.log('Unable to scan directory: ' + err);
-  } 
-  //listing all files using forEach
-  files.forEach(function (file) {
-      // Do whatever you want to do with the file
-      console.log(file); 
-  });
-});
+// console.log(DIST_DIR, HTML_FILE);
 
 app.use("/dist", express.static(DIST_DIR));
 // app.use('/public', express.static(__dirname + '/public'));

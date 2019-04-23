@@ -1,17 +1,15 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin")
-const UglifyJsPlugin = require("uglifyjs-webpack-plugin")
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
-console.info(
-  `-----Bundling in ${process.env.NODE_ENV} mode-----`
-);
+console.info(`-----Bundling in ${process.env.NODE_ENV} mode-----`);
 
 module.exports = {
   mode: "production",
   entry: {
-    main: './src/index.jsx'
+    main: "./src/index.jsx"
   },
   output: {
     path: path.join(__dirname, "dist"),
@@ -25,7 +23,7 @@ module.exports = {
       new UglifyJsPlugin({
         cache: true,
         parallel: true,
-        sourceMap: true 
+        sourceMap: true
       }),
       new OptimizeCSSAssetsPlugin({})
     ]
@@ -36,7 +34,12 @@ module.exports = {
         enforce: "pre",
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: "eslint-loader"
+        loader: "eslint-loader",
+        options: {
+          emitWarning: true,
+          failOnError: false,
+          failOnWarning: false
+        }
       },
       {
         test: /\.(js|jsx)$/,

@@ -2,14 +2,15 @@ const path = require("path");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
-console.info(
-  `-----Bundling in ${process.env.NODE_ENV} mode-----`
-);
+console.info(`-----Bundling in ${process.env.NODE_ENV} mode-----`);
 
 module.exports = {
   mode: "development",
   entry: {
-    main: ['webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000', './src/index.jsx']
+    main: [
+      "webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000",
+      "./src/index.jsx"
+    ]
   },
   output: {
     path: path.join(__dirname, "./dist"),
@@ -24,7 +25,12 @@ module.exports = {
         enforce: "pre",
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: "eslint-loader"
+        loader: "eslint-loader",
+        options: {
+          emitWarning: true,
+          failOnError: false,
+          failOnWarning: false
+        }
       },
       {
         test: /\.(js|jsx)$/,

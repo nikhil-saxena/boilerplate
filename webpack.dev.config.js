@@ -9,10 +9,10 @@ console.info(
 module.exports = {
   mode: "development",
   entry: {
-    main: './src/index.jsx'
+    main: ['webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000', './src/index.jsx']
   },
   output: {
-    path: path.join(__dirname, "dist"),
+    path: path.join(__dirname, "./dist"),
     filename: "[name].[hash:8].js",
     publicPath: "/dist"
   },
@@ -66,6 +66,7 @@ module.exports = {
       filename: "index.html",
       excludeChunks: ["server"]
     }),
+    new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin()
   ]
 };
